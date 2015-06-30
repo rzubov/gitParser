@@ -46,7 +46,16 @@
 
         </div>
       </div>-->
-      <repo-item favorites='addToFavorites' id="repo.id" name="repo.name" login="repo.owner.login" repoUrl="repo.html_url" avatar="repo.owner.avatar_url" description="repo.description"></repo-item>
+
+      <repo-item
+        isfavorite="repo.favorite"
+        id="repo.id"
+        name="repo.name"
+        login="repo.owner.login"
+        link="repo.html_url"
+        avatar="repo.owner.avatar_url"
+        description="repo.description">
+      </repo-item>
 
     </div>
   </div>

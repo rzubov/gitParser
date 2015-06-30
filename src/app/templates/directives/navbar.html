@@ -1,0 +1,22 @@
+<nav class="navbar navbar-static-top navbar-inverse">
+  <div class="container-fluid">
+    <div class="navbar-header">
+
+
+      <ul class="nav navbar-nav">
+        <li><a ng-class="classActive('/')" class="navbar-brand" ng-href="#/">
+          <span class="glyphicon glyphicon-home"></span> Git repo catalog
+        </a></li>
+        <li><a ng-class="classActive('/favorites')" class="navbar-brand" ng-href="#/favorites">
+          <span class="glyphicon glyphicon-star"></span>Favorites</a></li>
+      </ul>
+    </div>
+
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-6">
+
+      <ul class="nav navbar-nav navbar-right acme-navbar-text">
+        <li>Application was created {{ vm.relativeDate }}.</li>
+      </ul>
+    </div>
+  </div>
+</nav>

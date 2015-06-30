@@ -1,7 +1,7 @@
-<h1>Favorite repositories</h1>
+<h1>Favorite repositories({{repos.length}})</h1>
 <div class="row">
-  <div class="col-xs-12" ng-repeat="repo in favorite.repos | orderBy:'id'">
-    <div class="panel panel-default">
+  <div class="col-xs-12" ng-repeat="repo in repos | orderBy:'id'">
+<!--    <div class="panel panel-default">
       <div class="">{{repo.id}}</div>
       <div class="panel-heading">
         <a target="_blank" ng-href="{{repo.html_url}}">
@@ -28,8 +28,19 @@
         </div>
 
       </div>
-    </div>
-
+    </div>-->
+    <repo-item
+      isfavorite="true"
+      id="repo.id"
+      name="repo.name"
+      login="repo.login"
+      link="repo.html_url"
+      avatar="repo.avatar_url"
+      description="repo.description">
+    </repo-item>
+  </div>
+  <div class="col-xs-12" ng-show="!repos.length">
+    <h3>You haven't favorite repositories yet</h3>
   </div>
 </div>
 
