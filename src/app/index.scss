@@ -57,7 +57,38 @@ $icon-font-path: "../../bower_components/bootstrap-sass-official/assets/fonts/bo
 
 }
 .repoNameDetail{
+  font-size:22px;
+}
+.repoNameDetailOwner{
+  color:#777;
   font-size:20px;
+}
+.catalogRepoName{
+  font-size:20px;
+  text-decoration:none!important;
+  @include transition(border 300ms ease);
+  color:#333;
+  &:hover{
+    color:#333;
+    border-bottom:1px solid #333;
+  }
+}
+.userDetailName{
+  color: #333;
+  display: block;
+  overflow: hidden;
+  width: 100%;
+  font-size: 26px;
+  line-height: 30px;
+  text-overflow: ellipsis;
+  font-weight:700;
+  margin-bottom:0;
+}
+.userDetailLogin{
+  color:#666;
+  font-weight:300;
+  font-size:20px;
+  margin-top:0;
 }
 
 /**

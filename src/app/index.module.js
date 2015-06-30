@@ -2,6 +2,6 @@
   'use strict';
 
   angular
-    .module('appName', ['ngAnimate', 'ngCookies', 'ngTouch', 'ngSanitize', 'ngResource', 'ui.router','ui.bootstrap', 'mgcrea.ngStrap']);
+    .module('gitParser', ['ngAnimate', 'ngCookies', 'ngTouch', 'ngSanitize', 'ngResource', 'ui.router','ui.bootstrap', 'mgcrea.ngStrap']);
 
 })();

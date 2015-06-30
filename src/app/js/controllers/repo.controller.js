@@ -1,10 +1,10 @@
 (function () {
   'use strict';
 
-  angular.module('appName')
-    .controller('ContributorsListController', ContributorsListController);
+  angular.module('gitParser')
+    .controller('RepoController', RepoController);
 
-  function ContributorsListController($http, $stateParams, $log, $scope, headerParser) {
+  function RepoController($http, $stateParams, $log, $scope, headerParser) {
 
     var contributors = this;
 

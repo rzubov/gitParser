@@ -2,7 +2,7 @@
   'use strict';
 
   angular
-    .module('appName')
+    .module('gitParser')
     .config(config);
 
   /** @ngInject */

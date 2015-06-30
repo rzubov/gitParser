@@ -2,7 +2,7 @@
   'use strict';
 
   angular
-    .module('appName')
+    .module('gitParser')
     .factory('headerParser', headerParserFactory);
 
   /** @ngInject */

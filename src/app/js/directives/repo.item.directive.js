@@ -3,25 +3,29 @@
 
   angular
     .module('gitParser')
-    .directive('acmeNavbar', acmeNavbar);
+    .directive('repoItem', repoItem);
 
   /** @ngInject */
-  function acmeNavbar() {
+  function repoItem() {
     var directive = {
       restrict: 'E',
-      templateUrl: 'app/components/navbar/navbar.html',
+      templateUrl: 'app/templates/directives/repo-item.html',
       scope: {
-          creationDate: '='
-      },
-      controller: NavbarController,
-      controllerAs: 'vm',
-      bindToController: true
+        id: '=',
+        name:'=',
+        login:'=',
+        repoUrl:'=',
+        avatar:'=',
+        description:'=',
+        favorites:'='
+
+      }
     };
 
     return directive;
 
     /** @ngInject */
-    function NavbarController(moment) {
+    function RepoItemController($scope) {
       var vm = this;
 
       // "vm.creation" is avaible by directive option "bindToController: true"

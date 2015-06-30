@@ -2,28 +2,34 @@
   'use strict';
 
   angular
-    .module('appName')
+    .module('gitParser')
     .config(routeConfig);
 
   /** @ngInject */
   function routeConfig($stateProvider, $urlRouterProvider) {
     $stateProvider
-      .state('home', {
+      .state('catalog', {
         url: '/',
-        templateUrl: 'app/main/main.html',
-        controller: 'MainController',
-        controllerAs: 'main'
+        templateUrl: 'app/templates/pages/catalog.html',
+        controller: 'CatalogController',
+        controllerAs: 'catalog'
       })
-      .state('contributors-list',{
-        url:'/contributors-list/:name/:login',
-        templateUrl: 'app/main/contributorsList.html',
-        controller:'ContributorsListController',
-        controllerAs:'contributors'
+      .state('repo',{
+        url:'/repo/:name/:login',
+        templateUrl: 'app/templates/pages/repo.html',
+        controller:'RepoController',
+        controllerAs:'repo'
       })
-      .state('favorite', {
-        url: '/favorite',
-        templateUrl: 'app/favorite/favorite.html',
-        controller: 'FavoriteController',
+      .state('user', {
+        url: '/user/:login',
+        templateUrl: 'app/templates/pages/user.html',
+        controller: 'UserController',
+        controllerAs: 'user'
+      })
+      .state('favorites', {
+        url: '/favorites',
+        templateUrl: 'app/templates/pages/favorites.html',
+        controller: 'FavoritesController',
         controllerAs: 'favorite'
       });
 

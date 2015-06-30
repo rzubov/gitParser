@@ -14,13 +14,13 @@
                ng-src="{{ repo.avatar_url }}" alt="{{ repo.login }}">
 
           <div class="repoDesc">
-            <h2 class="">{{repo.owner.login}}</h2>
+            <h2 class="">{{repo.login}}</h2>
 
             <p>{{ repo.description }}</p>
           </div>
         </div>
         <div class="col-md-4">
-          <a ng-href="#/contributors-list/{{repo.name}}/{{repo.login}}"
+          <a ng-href="#/repo/{{repo.name}}/{{repo.login}}"
              class="btn btn-primary btn-lg btn-block">Contributors list</a>
           <button ng-click="addToFavorites(repo.id,repo.name,repo.owner.login, repo.description,repo.owner.avatar_url)"
                   type="button" class="btn btn-default btn-lg btn-block">Block level button

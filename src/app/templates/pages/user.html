@@ -1,0 +1,31 @@
+<div ng-controller="UserController">
+  <div class="row">
+    <div class="col-xs-4">
+      <div class="thumbnail contrThumb">
+        <img ng-src="{{ user.avatar_url }}" alt="{{user.name}}">
+      </div>
+    </div>
+    <div class="col-xs-8">
+      <a ng-href="{{user.html_url}}" target="_blank">View user on GitHub</a> <i
+      class="glyphicon glyphicon-eye-open"></i>
+
+      <h1 class="userDetailName">
+        {{user.name}}
+      </h1>
+
+      <h2 class="userDetailLogin">
+        {{user.login}}
+      </h2>
+
+      <div class="userDetailMail">
+        {{user.email}}
+      </div>
+      <div class="userDetailMail">
+        Followers: {{user.followers}}
+      </div>
+      <div class="userDetailMail">
+        Public repos:{{user.public_repos}}
+      </div>
+    </div>
+  </div>
+</div>
