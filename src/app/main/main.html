@@ -1,0 +1,68 @@
+<h1>Github public repositories catalog</h1>
+<div ng-controller="MainController">
+  <nav>
+    <ul class="pagination">
+      <li>
+        <a href="#" ng-click="firstPage()" aria-label="First">
+          <span aria-hidden="true">Go to First</span>
+        </a>
+      </li>
+      <li>
+        <a href="#" ng-click="nextPage()" aria-label="Next">
+          <span aria-hidden="true">Next</span>
+        </a>
+      </li>
+    </ul>
+  </nav>
+  <div class="row">
+    <div class="col-xs-12" ng-repeat="repo in repos | orderBy:'id'">
+      <div class="panel panel-default">
+        <div class="">{{repo.id}}</div>
+        <div class="panel-heading">
+          <a target="_blank" ng-href="{{repo.html_url}}">
+            {{repo.name}}
+          </a>
+        </div>
+        <div class="panel-body">
+          <div class="col-md-8 clearfix">
+            <img class="img-thumbnail pull-left" style="width:120px;height:120px;margin-right:20px;"
+                 ng-src="{{ repo.owner.avatar_url }}" alt="{{ repo.owner.login }}">
+
+            <div class="repoDesc">
+              <h2 class="">{{repo.owner.login}}</h2>
+
+              <p>{{ repo.description }}</p>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <a ng-href="#/contributors-list/{{repo.name}}/{{repo.owner.login}}"
+               class="btn btn-primary btn-lg btn-block">Contributors list</a>
+            <button
+              ng-click="addToFavorites($event,repo.id,repo.name,repo.owner.login, repo.description,repo.owner.avatar_url)"
+              type="button" class="btn btn-default btn-lg btn-block">Add to favorites
+            </button>
+          </div>
+
+        </div>
+      </div>
+
+    </div>
+  </div>
+  <nav>
+    <ul class="pagination">
+      <li>
+        <a href="#" ng-click="firstPage()" aria-label="First">
+          <span aria-hidden="true">Go to First</span>
+        </a>
+      </li>
+      <li>
+        <a href="#" ng-click="nextPage()" aria-label="Next">
+          <span aria-hidden="true">Next</span>
+        </a>
+      </li>
+    </ul>
+  </nav>
+
+
+</div>
+
