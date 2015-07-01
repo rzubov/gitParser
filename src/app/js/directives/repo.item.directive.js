@@ -47,8 +47,7 @@
           return true;
         }
 
-        var favoriteRepos = angular.fromJson(localStorage.favoriteRepos);
-        if (!favoriteRepos) favoriteRepos = [];
+        var favoriteRepos = angular.fromJson(localStorage.favoriteRepos)||[];
 
         // Use image cache if possible or store image to local storage
         if (!window.storageInfo) {
