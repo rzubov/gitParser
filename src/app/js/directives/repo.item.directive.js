@@ -17,14 +17,17 @@
         link: '=',
         avatar: '=',
         description: '=',
-        isfavorite: '='
+        isfavorite: '=',
+        cb:'='
       },
       controller: RepoItemController
     };
     return directive;
     /** @ngInject */
     function RepoItemController($scope, $log,ImageToBase64) {
-      $scope.addToFavorites = function (repoId, repoName, ownerLogin, repoDesc, ownerAvatar, htmlUrl) {
+
+
+      $scope.addToFavorites = function (repoId, repoName, ownerLogin, repoDesc, ownerAvatar, htmlUrl,cb) {
         var repo = {
           id: repoId,
           name: repoName,
@@ -60,8 +63,7 @@
           findById(favoriteRepos, repoId);
           localStorage.favoriteRepos = angular.toJson(favoriteRepos);
         }
-
-
+        if(cb)cb();
         $scope.isfavorite = !$scope.isfavorite;
       }
     }
