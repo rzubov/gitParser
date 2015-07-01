@@ -1,4 +1,4 @@
-<h1>Favorite repositories({{repos.length}})</h1>
+<h1>Favorite repositories({{repos.length||0}})</h1>
 <div class="row">
   <div class="col-xs-12" ng-repeat="repo in repos | orderBy:'id'">
 <!--    <div class="panel panel-default">
