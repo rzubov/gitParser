@@ -18,16 +18,16 @@
         avatar: '=',
         description: '=',
         isfavorite: '=',
-        cb:'='
+        cb: '='
       },
       controller: RepoItemController
     };
     return directive;
     /** @ngInject */
-    function RepoItemController($scope, $log,ImageToBase64) {
+    function RepoItemController($scope, $log, ImageToBase64) {
 
 
-      $scope.addToFavorites = function (repoId, repoName, ownerLogin, repoDesc, ownerAvatar, htmlUrl,cb) {
+      $scope.addToFavorites = function (repoId, repoName, ownerLogin, repoDesc, ownerAvatar, htmlUrl, isfavorite, cb) {
         var repo = {
           id: repoId,
           name: repoName,
@@ -36,6 +36,8 @@
           avatar_url: ownerAvatar,
           html_url: htmlUrl
         };
+        var favorite = isfavorite || false;
+        var favoriteRepos = angular.fromJson(localStorage.favoriteRepos) || [];
 
         function findById(source, id) {
           for (var i = 0; i < source.length; i++) {
@@ -50,20 +52,20 @@
           return true;
         }
 
-        var favoriteRepos = angular.fromJson(localStorage.favoriteRepos)||[];
-
         // Use image cache if possible or store image to local storage
-        if (!window.storageInfo) {
-          ImageToBase64(ownerAvatar, function(base64Img){
+        if (!window.storageInfo && !favorite) {
+          ImageToBase64(ownerAvatar, function (base64Img) {
             repo.avatar_url = base64Img;
-            findById(favoriteRepos, repoId);
+            favoriteRepos.push(repo);
+            $log.info('Repository with id ' + repoId + ' added to favorites');
             localStorage.favoriteRepos = angular.toJson(favoriteRepos);
           });
         } else {
           findById(favoriteRepos, repoId);
           localStorage.favoriteRepos = angular.toJson(favoriteRepos);
         }
-        if(cb)cb();
+
+        if (cb)cb();
         $scope.isfavorite = !$scope.isfavorite;
       }
     }

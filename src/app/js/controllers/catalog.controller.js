@@ -5,7 +5,7 @@
     .controller('CatalogController', CatalogController);
 
   /** @ngInject */
-  function CatalogController($timeout, $scope, $http, $log) {
+  function CatalogController($timeout, $scope, $http, $log, gitToken) {
     $scope.repos = [];
     $scope.since = 0;
     $scope.repos.favorite = false;
@@ -15,7 +15,10 @@
 
     function getData(page) {
       if (page) $scope.since = 0;
-      $http({method: 'GET', url: 'https://api.github.com/repositories?since=' + $scope.since})
+      $http({
+        method: 'GET',
+        url: 'https://api.github.com/repositories?access_token=' + gitToken + '&since=' + $scope.since
+      })
         .success(function (data, status, headers) {
           $scope.since = /since=(\d+)/.exec(headers('Link'))[1];
           angular.copy(data, $scope.repos);
@@ -29,6 +32,7 @@
           }
         });
     }
+
     $scope.nextPage = function () {
       getData();
     };
