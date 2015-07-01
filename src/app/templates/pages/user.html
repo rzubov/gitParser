@@ -30,7 +30,7 @@
   </div>
   <div class="list-group">
     <div class="list-group-item active">
-      User repositories({{totalItems}})
+      User public repositories({{totalItems}})
     </div>
     <div class="list-group-item clearfix" ng-repeat="repo in repos | orderBy:'id'">
 
@@ -39,20 +39,9 @@
            class="">{{repo.name}}</a>
       </div>
       <div class="col-xs-12 col-sm-6 text-center">
-        <p><a ng-href="{{link}}" target="_blank">View repository on GitHub</a> <i
+        <p><a ng-href="{{repo.html_url}}" target="_blank">View repository on GitHub</a> <i
           class="glyphicon glyphicon-eye-open"></i></p>
       </div>
-
-
-      <!--    <repo-item
-            isfavorite="repo.favorite"
-            id="repo.id"
-            name="repo.name"
-            login="repo.owner.login"
-            link="repo.html_url"
-            avatar="repo.owner.avatar_url"
-            description="repo.description">
-          </repo-item>-->
 
     </div>
     <pagination ng-show="showPages()" total-items="totalItems" ng-model="currentPage" ng-change="pageChanged()"
