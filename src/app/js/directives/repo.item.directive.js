@@ -54,7 +54,7 @@
 
         // Use image cache if possible or store image to local storage
         if (!window.storageInfo && !favorite) {
-          ImageToBase64(ownerAvatar, function (base64Img) {
+          ImageToBase64(ownerAvatar+'&s=120', function (base64Img) {
             repo.avatar_url = base64Img;
             favoriteRepos.push(repo);
             $log.info('Repository with id ' + repoId + ' added to favorites');

@@ -5,7 +5,7 @@
   </div>
   <div class="col-xs-12 col-sm-6">
     <img class="img-thumbnail pull-left" style="width:120px;height:120px;margin-right:20px;"
-         ng-src="{{ repo.project.owner.avatar_url }}" alt="{{ repo.project.title }}">
+         ng-src="{{ repo.project.owner.avatar_url }}&s=120" alt="{{ repo.project.title }}">
 
     <div class="repoNameDetail">{{repo.project.name}}</div>
     <div class="repoNameDetailOwner">({{repo.project.owner.login}})</div>
@@ -32,7 +32,7 @@
           <div class="contributorName">
             {{user.login}}
           </div>
-          <img ng-src="{{ user.avatar_url }}" alt="{{user.login}}">
+          <img ng-src="{{ user.avatar_url }}&s=280" alt="{{user.login}}">
           <div class="contributionsCount">
           Contributions:{{user.contributions}}
             </div>
