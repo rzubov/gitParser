@@ -5,12 +5,12 @@
 
     beforeEach(module('gitParser'));
 
-    it('repos should be array', inject(function($rootScope,$controller) {
-
+    it('updater should set scope.repos', inject(function($rootScope,$controller) {
       var scope = $rootScope.$new();
-      var vm = $controller('CatalogController', {$scope: scope });
-
+      var fv = $controller('FavoritesController', {$scope: scope });
+      scope.updater();
       expect(angular.isArray(scope.repos)).toBeTruthy();
+      expect(scope.repos).toBeDefined();
     }));
   });
 })();

@@ -7,11 +7,9 @@
 
   /** @ngInject */
   function FavoritesController($timeout, $http,$log,$scope) {
-    var favorites = this;
-    favorites.updater = function(){
-      $scope.repos = angular.fromJson(localStorage.favoriteRepos);
+    $scope.updater = function(){
+      $scope.repos = angular.fromJson(localStorage.favoriteRepos)||[];
     };
-    favorites.updater()
-
+    $scope.updater()
   }
 })();
